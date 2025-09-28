@@ -7,10 +7,9 @@
   "exports": {
     ".": {
       "import": "./dist/index.mjs",
-      "require": "./dist/index.js",
-      "styles": "./styles/styles.css"
+      "require": "./dist/index.js"
     },
-    "./styles": "./styles/styles.css"
+    "./styles/styles.css": "./styles/styles.css"
   },
   "files": [
     "dist",
