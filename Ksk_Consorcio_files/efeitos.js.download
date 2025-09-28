@@ -1,0 +1,111 @@
+// ###################### 
+// START SCRIPT MENU 
+//######################
+document.addEventListener('DOMContentLoaded', function () {
+    var navbarToggle = document.querySelector('.navbar-toggler');
+    var navbarClose = document.querySelector('.navbar-toggler_close');
+    var navbarCollapse = document.getElementById('navbarSupportedContent');
+
+    function openMenu() {
+        if (navbarCollapse) {
+            navbarCollapse.classList.add('show');
+        }
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closeMenu() {
+        if (navbarCollapse) {
+            navbarCollapse.classList.remove('show');
+        }
+        document.body.style.overflow = '';
+    }
+
+    if (navbarToggle) {
+        navbarToggle.addEventListener('click', function (e) {
+            e.stopPropagation();
+            openMenu();
+        });
+    }
+
+    if (navbarClose) {
+        navbarClose.addEventListener('click', function (e) {
+            e.stopPropagation();
+            closeMenu();
+        });
+    }
+
+    // Fecha o menu ao pressionar ESC
+    document.addEventListener('keydown', function (e) {
+        if (e.key === "Escape") {
+            closeMenu();
+        }
+    });
+
+    // Fecha o menu ao clicar fora dele
+    document.addEventListener('click', function (e) {
+        var isClickInsideMenu = navbarCollapse.contains(e.target);
+        var isToggleButton = navbarToggle.contains(e.target);
+        var isCloseButton = navbarClose && navbarClose.contains(e.target);
+
+        if (!isClickInsideMenu && !isToggleButton && !isCloseButton) {
+            closeMenu();
+        }
+    });
+
+    if (navbarCollapse) {
+        var menuLinks = navbarCollapse.querySelectorAll('a');
+        menuLinks.forEach(function(link) {
+            link.addEventListener('click', function (e) {
+                var href = link.getAttribute('href');
+                if (href && (href.startsWith('#') || href === window.location.pathname || href === window.location.href || href === '')) {
+                    closeMenu();
+                }
+            });
+        });
+    }
+});
+// ###################### 
+// END SCRIPT MENU 
+//######################
+
+
+// ###################### 
+    // START SCRIPT CARDS SWIPER SLIDER HEIGTH AUTO
+//######################
+document.addEventListener("DOMContentLoaded", function() {
+    // Função para ajustar a altura dos slides com base no maior card
+    function adjustSlideHeight() {
+        var slides = document.querySelectorAll('.swiper-slide');
+        var maxHeight = 1200;
+
+        // Limpa alturas anteriores para recalcular corretamente
+        slides.forEach(function(slide) {
+            slide.style.height = 'auto'; // Reseta a altura
+        });
+
+        // Encontra a maior altura de card
+        slides.forEach(function(slide) {
+            var slideHeight = slide.offsetHeight;
+            if (slideHeight > maxHeight) {
+                maxHeight = slideHeight;
+            }
+        });
+
+        // Define a altura máxima encontrada para todos os slides
+        slides.forEach(function(slide) {
+            slide.style.height = maxHeight + 'px';
+        });
+    }
+
+    // Ajusta a altura dos slides após a inicialização do Swiper
+    adjustSlideHeight();
+
+    // Ajusta novamente quando a janela for redimensionada
+    window.addEventListener('resize', function() {
+        adjustSlideHeight();
+    });
+
+});
+// ###################### 
+    // END SCRIPT CARDS SWIPER SLIDER HEIGTH AUTO
+//######################

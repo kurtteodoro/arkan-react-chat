@@ -1,0 +1,36 @@
+document.addEventListener('DOMContentLoaded', function () {
+    var swiperPlansValues = new Swiper('.carousel-plans-values', {
+        slidesPerView: 1,
+        spaceBetween: 20,
+        navigation: {
+            nextEl: '.swiper-button-next.plans-values-next',
+            prevEl: '.swiper-button-prev.plans-values-prev',
+        },
+        autoplay: {
+            delay: 5000,
+            disableOnInteraction: false,
+        },
+        breakpoints: {
+            0: {
+                slidesPerView: 1.01,
+                spaceBetween: 10,
+            },
+            640: {
+                slidesPerView: 1.1,
+                spaceBetween: 30,
+            },
+            768: {
+                slidesPerView: 2.2,
+                spaceBetween: 30,
+            },
+            999: {
+                slidesPerView: 3,
+                spaceBetween: 30,
+            },
+            1200: {
+                slidesPerView: 3,
+                spaceBetween: 30,
+            },
+        },
+    });
+});

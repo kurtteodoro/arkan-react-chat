@@ -1,0 +1,281 @@
+/** Configurações Gerais para normalização **/
+
+@charset "utf-8";
+
+*{
+	margin: 0;
+	padding: 0;
+}
+
+html {
+  	font-family: sans-serif;
+  	-webkit-text-size-adjust: 100%;
+	-ms-text-size-adjust: 100%;
+}
+
+article,aside,details,figcaption,figure,footer,
+header,hgroup,main,menu,nav,section,summary {
+	display: block;
+}
+
+audio,canvas,
+progress,video {
+	display: inline-block;
+	vertical-align:middle;
+}
+audio:not([controls]) {
+	display: none;
+	height: 0;
+}
+[hidden],
+template {
+	display: none;
+}
+a {
+	text-decoration: none;
+    color: inherit;
+    text-decoration: none;
+}
+a:active,
+a:hover,input:focus,
+button:focus,textarea:focus,
+select:focus{
+	outline:0;
+	text-decoration: none;
+}
+
+body figure{margin: 0px;}
+
+img{object-fit: cover; max-width: 100%; }
+
+li{list-style:none;}
+
+abbr[title] {
+	border-bottom: 1px dotted;
+}
+b,
+strong {
+	font-weight: bold;
+}
+dfn {
+	font-style: italic;
+}
+
+mark {
+	color: #000;
+	background: #eee;
+}
+small {
+	font-size: 80%;
+}
+sub,
+sup {
+	position: relative;
+	font-size: 75%;
+	line-height: 0;
+	vertical-align: baseline;
+}
+sup {
+	top: -.5em;
+}
+sub {
+	bottom: -.25em;
+}
+img {
+	border: 0;
+}
+svg:not(:root) {
+	overflow: hidden;
+}
+
+pre {
+	overflow: auto;
+}
+code,
+kbd,
+pre,
+samp {
+	font-family: monospace, monospace;
+	font-size: 1em;
+}
+button,
+input,
+optgroup,
+select,
+textarea {
+	margin: 0;
+	font: inherit;
+	color: inherit;
+	line-height: normal;
+}
+
+span{
+	line-height: 1.2;
+}
+
+button,
+select {
+	text-transform: none;
+}
+
+button,
+html input[type="button"],
+input[type="reset"],
+input[type="submit"] {
+	-webkit-appearance: button;
+	cursor: pointer;
+}
+
+button[disabled],
+html input[disabled] {
+	cursor: default;
+}
+button::-moz-focus-inner,
+input::-moz-focus-inner {
+	padding: 0;
+	border: 0;
+}
+
+legend {
+	padding: 0;
+	border: 0;
+}
+textarea {
+	overflow: auto;
+}
+optgroup {
+	font-weight: bold;
+}
+table {
+	border-spacing: 0;
+	border-collapse: collapse;
+}
+td,
+th {
+	padding: 0;
+}
+hr {
+    margin-top: 0;
+    margin-bottom: 0;
+    border: 0;
+    border-top: none;
+}
+
+ol, ul, dl, p{
+	margin-bottom: 0;
+	padding: 0;
+}
+.h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6{
+	margin-bottom: 0;
+}
+
+::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+	font: inherit;
+	color: inherit;
+}
+::-moz-placeholder { /* Firefox 19+ */
+	font: inherit;
+	color: inherit;
+}
+:-ms-input-placeholder { /* IE 10+ */
+	font: inherit;
+	color: inherit;
+}
+
+/** Configurações para impressão **/
+
+
+.wp-block-group h2{
+	font-size: 1.5rem;
+	color: var(--color-primary);
+}
+.wp-block-search__button{
+	padding: .5rem;
+	font-size: .8rem;
+	border-radius: 10px;
+}
+@media print {
+	*,
+	*:before,
+	*:after {
+		color: #000 !important;
+		text-shadow: none !important;
+		background: transparent !important;
+		-webkit-box-shadow: none !important;
+		box-shadow: none !important;
+	}
+
+	nav, aside {
+		display: none;
+	}
+
+	body, article {
+		width: 100%;
+		margin: 0;
+		padding: 0;
+	}
+
+  	a,
+  	a:visited {
+		text-decoration: underline;
+  	}
+
+	pre,
+	blockquote {
+		border: 1px solid #999;
+		page-break-inside: avoid;
+  	}
+  	thead {
+		display: table-header-group;
+  	}
+  	tr,
+  	img {
+		page-break-inside: avoid;
+  	}
+ 
+	p,
+	h2,
+	h3 {
+		orphans: 3;
+		widows: 3;
+  	}
+	h2,
+	h3 {
+		page-break-after: avoid;
+  	}
+
+	.wq-menu_principal{display: none;}
+
+}
+@media print and (color) {
+	* {
+		-webkit-print-color-adjust: exact;
+		-moz-print-color-adjust: exact;
+		print-color-adjust: exact;
+	}
+}
+
+@media all and (min-width: 992px) {
+	.navbar .nav-item .dropdown-menu{ display: none; }
+	.navbar .nav-item:hover .nav-link{}
+	.navbar .nav-item:hover .dropdown-menu{
+		display: block;
+		animation: toBottom .5s ease both;
+	}
+	.navbar .nav-item .dropdown-menu{ margin-top:0; }
+}
+
+@keyframes toBottom{
+	from{
+		transform: translateY(-100%);
+		opacity: 0;
+		transform-origin: 0 0;
+		transform: scaleY(0);
+	}
+	to{
+		transform: translateY(0%);
+		opacity: 1;
+		transform-origin: 0 0;
+		transform: scaleY(1);
+	}
+}

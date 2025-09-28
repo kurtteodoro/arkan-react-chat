@@ -1,0 +1,47 @@
+jQuery(document).ready(function($) {
+  $('.send-form').on('submit', function(e) {
+      e.preventDefault();
+
+      var formData = $(this).serialize();
+
+      var buttonForm = $(this).find('button');
+      var formFields = $(this).find('input, textarea, select');
+
+      buttonForm.html("Enviando..");
+      buttonForm.prop('disabled', true);
+      formFields.prop('disabled', true);
+
+      $.ajax({
+          url: atom_ajax_object.ajax_url,
+          type: 'POST',
+          data: {
+              action: 'handle_form_submission',
+              form_data: formData
+          },
+          success: function(response) {
+            if (response.success) {
+              buttonForm.html("Enviado");
+              alert(response.data || "Formulário enviado com sucesso!");
+              // Limpa os campos do formulário
+              formFields.val("");
+              setTimeout(function() {
+                buttonForm.html("Enviar");
+                buttonForm.prop('disabled', false);
+              }, 2000);
+            } else {
+              buttonForm.html("Falha ao enviar");
+              alert(response.data || "Ocorreu um erro ao enviar o formulário.");
+              buttonForm.prop('disabled', false);
+            }
+          },
+          error: function(response) {
+            buttonForm.html("Falha ao enviar");
+            alert("Ocorreu um erro ao processar o formulário.");
+            buttonForm.prop('disabled', false);
+          },
+          complete: function() {
+            formFields.prop('disabled', false);
+          }
+      });
+  });
+});

@@ -1,0 +1,34 @@
+{
+  "name": "@arkan/react-chat",
+  "version": "1.0.0",
+  "description": "Componente de chat React reutilizável",
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "exports": {
+    ".": {
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.js",
+      "styles": "./styles/styles.css"
+    },
+    "./styles": "./styles/styles.css"
+  },
+  "files": [
+    "dist",
+    "styles"
+  ],
+  "peerDependencies": {
+    "react": ">=18",
+    "react-dom": ">=18"
+  },
+  "scripts": {
+    "build": "tsup src/index.jsx --format cjs,esm --out-dir dist --clean",
+    "prepare": "npm run build"
+  },
+  "devDependencies": {
+    "postcss": "^8.5.6",
+    "postcss-load-config": "^6.0.1",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "tsup": "^6.0.0"
+  }
+}
