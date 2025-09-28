@@ -62,3 +62,7 @@ build/static/css/2.87b11335.chunk.css
 build/index.html
 build/asset-manifest.json
 .vscode/settings.json
+
+.vscode/
+.env
+.env.example
